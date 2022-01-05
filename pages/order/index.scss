@@ -1,0 +1,15 @@
+/* pages/order/index.wxss */
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  height: 44px;
+  font-size: 15px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+}
+.van-submit-bar__button {
+  display:none;
+}

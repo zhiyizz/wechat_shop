@@ -1,0 +1,14 @@
+<!--pages/order/index.wxml-->
+<view class="order-wrap">
+        <van-nav-bar title="订单列表" left-text="返回" left-arrow bind:click-left="onClickLeft" />
+        <view class="order-list">
+                <van-swipe-cell right-width="{{ 65 }}"  id="{{index}}" wx:for="{{cardItem}}"  wx:key="item" async-close
+  bind:close="onClose" name="{{item.name}}">
+                        <van-cell-group>
+                                <van-card num="{{item.num}}" price="{{item.price*item.num}}" title="{{item.title}}" thumb="{{ item.imageURL }}" />
+                        </van-cell-group>
+                        <view slot="right" >删除</view>
+                </van-swipe-cell>
+        </view>
+        <van-submit-bar price="{{ price }}"  />
+</view>

@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  <van-sidebar active-key="{{ activeKey }}" class="slidebar" bind:change="onChangeSlide">
+    <block wx:for="{{navItems}}" wx:key="slidenav">
+      <van-sidebar-item key="{{index}}" title="{{item}}" />
+    </block>
+  </van-sidebar>
+
+  <view class="main">
+    <view class="product">
+      <block wx:for="{{productItems}}" wx:key="product">
+
+        <van-card class="product-row" price="{{item.price}}" title="{{item.title}}" thumb="{{item.imageURL}}">
+          <view class="footer" slot="footer">
+            <van-stepper value="{{ 0 }}" id="{{index}}" data-name="{{item.title}}" bind:change="onChange" min="0" />
+          </view> 
+        </van-card>
+      </block>
+      <!-- <view class="product-row" wx:for="{{productItems}}" wx:key="product">
+          <image src="{{item.imageURL}}" mode="widthFix" class="thumb" />
+          <view class="inner">
+            <view class="desc">{{item.title}} <view class="price">￥:{{item.price}}</view>
+            </view>
+            <view class="footer">
+              <van-stepper value="{{ 0 }}" id="{{index}}" data-name="{{item.title}}" bind:change="onChange" min="0" />
+            </view>
+          </view>
+        </view> -->
+
+    </view>
+
+  </view>
+  <van-goods-action>
+    <van-goods-action-icon icon="cart-o" text="购物车" info="{{priceAll?priceAll:null}}" />
+    <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+  </van-goods-action>
+</view>
